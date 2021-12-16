@@ -6,7 +6,7 @@ const Navbar: React.FC = () => {
     return (
         <nav id={navbarStyles.navbar}>
             <div id={navbarStyles.name}>
-                 <Link href='/'>
+                <Link href='/'>
                     <a className={navbarStyles.navLink}>Joshua Seligman</a>
                 </Link>
             </div>
