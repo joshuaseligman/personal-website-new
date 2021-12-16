@@ -5,7 +5,7 @@ import indexStyles from '../../styles/index.module.scss';
 interface Props {
     state: number;
     fireFunction: (input: number) => void;
-}
+};
 
 const IndexTextTop: React.FC<Props> = ({state, fireFunction}) => {
 

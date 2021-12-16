@@ -6,6 +6,6 @@ const Footer: React.FC = () => {
             <h2>&copy; 2021 Joshua Seligman. All rights reserved.</h2>
         </footer>
     );
-}
+};
 
 export default Footer;

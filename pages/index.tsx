@@ -21,7 +21,7 @@ const Index: NextPage = () => {
             </div>
             
         </div>
-    )
-}
+    );
+};
 
 export default Index;

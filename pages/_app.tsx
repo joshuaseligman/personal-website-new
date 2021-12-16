@@ -1,8 +1,8 @@
 import type { AppProps } from 'next/app';
 import Head from 'next/head';
-import Footer from '../components/globalComponents/footer';
 
 import Navbar from '../components/globalComponents/navbar';
+import Footer from '../components/globalComponents/footer';
 
 import '../styles/global.scss';
 
@@ -20,4 +20,4 @@ function MyApp({ Component, pageProps }: AppProps) {
     )
 }
 
-export default MyApp
+export default MyApp;
