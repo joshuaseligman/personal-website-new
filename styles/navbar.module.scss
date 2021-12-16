@@ -1,0 +1,31 @@
+@import './variables.scss';
+
+#navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    height: 15%;
+    background-color: $nav-color;
+    padding: 1%;
+}
+
+#name {
+    width: 40%;
+}
+
+.navLink {
+    color: $text-color;
+    text-decoration: none;
+    font-size: 2rem;
+}
+
+.navLink:hover {
+    color: $text-red;
+}
+
+#links {
+    display: flex;
+    width: 60%;
+    align-items: center;
+    justify-content: space-evenly;
+}
