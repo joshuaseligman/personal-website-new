@@ -2,6 +2,7 @@ import type { NextPage } from 'next';
 
 import PageTitle from '../components/globalComponents/pageTitle';
 
+import globalStyles from '../styles/global.module.scss';
 import resumeStyles from '../styles/resume.module.scss';
 
 /**
@@ -10,7 +11,7 @@ import resumeStyles from '../styles/resume.module.scss';
  */
 const Resume: NextPage = () => {
     return (
-        <div>
+        <div className={globalStyles.page}>
             <PageTitle title='My Resume'></PageTitle>
         </div>
     );
