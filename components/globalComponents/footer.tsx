@@ -8,7 +8,7 @@ const Footer: React.FC = () => {
     return (
         // Container for the footer
         <footer id={footerStyles.footer}>
-            <h2>&copy; 2021 Joshua Seligman. All rights reserved.</h2>
+            <p>&copy; 2021 Joshua Seligman. All rights reserved.</p>
         </footer>
     );
 };

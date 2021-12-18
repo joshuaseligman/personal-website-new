@@ -1,1 +1,72 @@
 @import './variables.scss';
+@import './mixins.scss';
+
+.section {
+    margin-bottom: 5%;
+
+    hr {
+        border-color: $text-color;
+        border-style: dashed;
+        border-width: 2.5px;
+    }
+
+    h2 {
+        font-size: 3rem;
+        text-align: center;
+    }
+}
+
+#top {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+
+    p {
+        width: 60%;
+    }
+
+    img {
+        width: 25%;
+    }
+}
+
+#sports, #videoGames {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+
+    img {
+        width: 15%;
+    }
+
+    p {
+        width: 50%;
+        text-align: justify;
+    }
+}
+
+#movies {
+    display: flex;
+    flex-direction: column;
+
+    div {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-evenly;
+    
+        p {
+            width: 60%;
+        }
+    
+        img {
+            width: 20%;
+        }
+    }
+}
+
+#matrix {
+    margin-bottom: 5%;
+}

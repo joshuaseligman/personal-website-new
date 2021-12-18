@@ -5,6 +5,7 @@ import IndexTextTop from '../components/indexComponents/indexTextTop';
 import IndexBlink from '../components/indexComponents/indexBlink';
 import IndexTextBottom from '../components/indexComponents/indexTextBottom';
 
+import globalStyles from '../styles/global.module.scss';
 import indexStyles from '../styles/index.module.scss';
 
 /**
@@ -17,7 +18,7 @@ const Index: NextPage = () => {
 
     return (
         // Div for the landing page
-        <div id={indexStyles.landing}>
+        <div id={indexStyles.landing} className={globalStyles.page}>
             {/* Area for for the main animation */}
             <div id={indexStyles.landingTop}>
                 <h1>&#62;&nbsp;</h1>

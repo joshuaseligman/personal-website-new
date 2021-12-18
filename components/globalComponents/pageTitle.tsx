@@ -1,4 +1,6 @@
-import { useEffect, useRef, useState } from 'react'; 
+import { useEffect, useRef, useState } from 'react';
+
+import globalStyles from '../../styles/global.module.scss';
 
 // Interface that determines what gets passed into the component
 interface Props {
@@ -57,7 +59,7 @@ const PageTitle: React.FC<Props> = ({title}) => {
 
     return (
         // The title of the pages is an h1
-        <h1>
+        <h1 className={globalStyles.title}>
             {/* Part of the title that has been shown */}
             <span ref={titleRef}></span>
             {/* Part of the title that is still scrambled */}
