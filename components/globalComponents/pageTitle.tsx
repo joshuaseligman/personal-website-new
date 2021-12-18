@@ -40,7 +40,7 @@ const PageTitle: React.FC<Props> = ({title}) => {
             randRef.current.textContent = Math.random().toString(36).substring(2, title.length - charState + 2);
         }
         // Scramble the letters 8 times before getting the next letter from the title
-        if (x < 8) {
+        if (x < 5) {
             setTimeout(setRandomChars, 100, x + 1);
         } else {
             nextChar();
