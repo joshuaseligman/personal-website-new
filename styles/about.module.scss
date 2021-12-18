@@ -24,6 +24,7 @@
 
     p {
         width: 60%;
+        opacity: 0;
     }
 
     img {
@@ -69,4 +70,57 @@
 
 #matrix {
     margin-bottom: 5%;
+}
+
+.slideInFromLeftClass {
+    opacity: 1 !important;
+    @include animate(slide-in-from-left, 2.5s, linear, 1);
+}
+
+@include keyframes(slide-in-from-left) {
+    0% {
+        opacity: 0;
+        transform: translateX(-25rem);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateX(0rem);
+    }
+}
+
+.slideInFromRightClass {
+    opacity: 1 !important;
+    @include animate(slide-in-from-right, 2.5s, linear, 1);
+}
+
+@include keyframes(slide-in-from-right) {
+    0% {
+        opacity: 0;
+        transform: translateX(25rem);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateX(0rem);
+    }
+}
+
+.fadeInClass {
+    opacity: 1 !important;
+    @include animate(fade-in, 3s, linear, 1);
+}
+
+@include keyframes(fade-in) {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+.hidden {
+    opacity: 0;
 }

@@ -4,15 +4,127 @@ import PageTitle from '../components/globalComponents/pageTitle';
 
 import globalStyles from '../styles/global.module.scss';
 import aboutStyles from '../styles/about.module.scss';
+import { useEffect } from 'react';
 
 /**
  * The page that is shown when the route is '/about'
  * @returns The JSX component for the about page
  */
 const About: NextPage = () => {
+
+    /**
+     * Function that iterates through each section on the page and determines the state of each section
+     */
+    function checkInView():void {
+        // Get the list of section elements and iterate through each of them
+        const sections:NodeListOf<HTMLDivElement> = document.querySelectorAll(`.${aboutStyles.section}`);
+        sections.forEach((section:HTMLDivElement) => {
+            // Run the animation if the section is visible
+            if (isInViewport(section)) {
+                runAnimations(section);
+            } else {
+                // Otherwise make the section hidden
+                resetAnimations(section);
+            }
+        });
+    }
+
+    /**
+     * Function that determines if a section is visible
+     * @param section The HTML div that is being checked
+     * @returns Whether or not the div is visible on the screen
+     */
+    function isInViewport(section:HTMLDivElement):boolean {
+        // Get the bounding box of the div element
+        const box:DOMRect = section.getBoundingClientRect();
+        return  (box.top >= 0 && box.top < window.innerHeight) || // Top is visible
+                (box.bottom >= 0 && box.bottom < window.innerHeight) || // Bottom is visible
+                (box.top < 0 && box.bottom > window.innerHeight); // Neither top nor bottom are visible but we are in between
+    }
+
+    /**
+     * Function that sets the animations
+     * @param section The section of the page that is getting animated
+     */
+    function runAnimations(section:HTMLDivElement): void {
+        // Get the children of the section
+        const nodes:HTMLCollection = section.children;
+
+        // If this is the first section
+        if (nodes[1].tagName !== 'H2') {
+            //Animations for the first section
+            nodes[0].classList.replace(aboutStyles.hidden, aboutStyles.slideInFromLeftClass);
+            nodes[1].classList.replace(aboutStyles.hidden, aboutStyles.slideInFromRightClass);
+        } else {
+            // Animations for the horizontal line and section heading
+            nodes[0].classList.replace(aboutStyles.hidden, aboutStyles.fadeInClass);
+            nodes[1].classList.replace(aboutStyles.hidden, aboutStyles.fadeInClass);
+
+            // Get the further children of the div of the section
+            const insideNodes:HTMLCollection = nodes[2].children;
+            // Animations are dependent on the section
+            switch (nodes[1].textContent) {
+                case 'Sports':
+                case 'Video Games':
+                    // Animations are the same for the sports and video games sections because they have the same layout
+                    insideNodes[0].classList.replace(aboutStyles.hidden, aboutStyles.slideInFromLeftClass);
+                    insideNodes[1].classList.replace(aboutStyles.hidden, aboutStyles.fadeInClass);
+                    insideNodes[2].classList.replace(aboutStyles.hidden, aboutStyles.slideInFromRightClass);
+                    break;
+                case 'Movies':
+                    // Movies has a few subsections to deal with
+                    for (let i:number = 0; i < insideNodes.length; i++) {
+                        // Each subsection has the same animations as each other
+                        insideNodes[i].children[0].classList.replace(aboutStyles.hidden, aboutStyles.slideInFromLeftClass);
+                        insideNodes[i].children[1].classList.replace(aboutStyles.hidden, aboutStyles.slideInFromRightClass);
+                    }
+                    break;
+            }
+        }
+    }
+
+    /**
+     * Removes the animation class from the inputted element's children
+     * @param section The section to clear the animations from
+     */
+    function resetAnimations(section:Element) {
+        // Get the children elements and iterate through them
+        const children:HTMLCollection = section.children;
+        for (let i:number = 0; i < children.length; i++) {
+            // If there is a div, remove the animations from each of the child nodes inside the div
+            if (children[i].tagName.toUpperCase() === 'DIV') {
+                resetAnimations(children[i]);
+            } else {
+                // Remove the class names
+                children[i].classList.forEach((className:string) => {
+                    children[i].classList.remove(className);
+                });
+                // Add the hidden class
+                children[i].classList.add(aboutStyles.hidden);
+            }
+        }
+    }
+
+    // DOM manipulation for the page
+    useEffect(() => {
+        // Begin by making all the sections hidden
+        const sections:NodeListOf<HTMLDivElement> = document.querySelectorAll(`.${aboutStyles.section}`);
+        sections.forEach((section) => {
+            resetAnimations(section);
+        });
+        // Determine if each section should be initially rendered
+        checkInView();
+        // Check again whenever the user scrolls on the page
+        window.addEventListener('scroll', checkInView);
+    });
+
     return (
+        // Div for the entire page
         <div className={globalStyles.page}>
+            {/* Page title component with its animations */}
             <PageTitle title='About Me'></PageTitle>
+
+            {/* Top section with the general about me */}
             <div id={aboutStyles.top} className={aboutStyles.section}>
                 <p>
                     Hi, I am a sophomore at Marist College majoring in <em>Computer Science</em> with 
@@ -23,6 +135,8 @@ const About: NextPage = () => {
                 </p>
                 <img src='/me.jpg'></img>
             </div>
+
+            {/* Section about my favorite sports teams */}
             <div className={aboutStyles.section}>
                 <hr />
                 <h2>Sports</h2>
@@ -35,6 +149,8 @@ const About: NextPage = () => {
                     <img src='https://upload.wikimedia.org/wikipedia/commons/thumb/a/ae/New_York_Rangers.svg/440px-New_York_Rangers.svg.png'></img>
                 </div>
             </div>
+
+            {/* Section about my favorite movies */}
             <div className={aboutStyles.section}>
                 <hr />
                 <h2>Movies</h2>
@@ -55,6 +171,8 @@ const About: NextPage = () => {
                     </div>
                 </div>
             </div>
+
+            {/* Section about my favorite video games */}
             <div className={aboutStyles.section}>
                 <hr />
                 <h2>Video Games</h2>
