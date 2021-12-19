@@ -13,6 +13,7 @@ const Resume: NextPage = () => {
     return (
         <div className={globalStyles.page}>
             <PageTitle title='My Resume'></PageTitle>
+            <iframe src='/Joshua Seligman Resume.pdf' className={resumeStyles.resume}></iframe>
         </div>
     );
 };
