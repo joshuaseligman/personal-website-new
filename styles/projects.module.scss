@@ -1,4 +1,5 @@
 @import './variables.scss';
+@import './mixins.scss';
 
 #githubLink {
     color: $text-color;
@@ -13,6 +14,14 @@
     flex-direction: column;
     align-items: center;
     justify-content: space-evenly;
+    
+    a {
+        width: 100%;
+        text-decoration: none;
+        color: $text-color;
+        margin-top: 1.5%;
+        margin-bottom: 2.5%;
+    }
 }
 
 .project {
@@ -21,7 +30,6 @@
     flex-direction: row;
     align-items: center;
     justify-content: space-evenly;
-    margin-bottom: 2.5%;
 
     border-style: dotted;
     border-color: $text-color;
@@ -29,12 +37,43 @@
     border-radius: 1.5rem;
 }
 
+.project:hover {
+    border-color: $text-red;
+}
+
 .projectInfo {
     width: 60%;
+
+    p {
+        font-size: 1.25rem;
+    }
 }
 
 .projectImg {
-    width: 25%;
+    width: 15%;
     margin-top: 2.5%;
     margin-bottom: 2.5%;
+    margin-left: 5%;
+    margin-right: 5%;
+}
+
+@include keyframes(slide-up) {
+    0% {
+        opacity: 0;
+        transform: translateY(10rem);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.slideUpClass {
+    opacity: 1 !important;
+    @include animate(slide-up, 2.0s, linear, 1);
+}
+
+.hidden {
+    opacity: 0;
 }
