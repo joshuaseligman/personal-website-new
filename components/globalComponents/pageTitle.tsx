@@ -39,9 +39,9 @@ const PageTitle: React.FC<Props> = ({title}) => {
             // Set the text of the random part to be a random string while keeping a consistent length in the overall string
             randRef.current.textContent = Math.random().toString(36).substring(2, title.length - charState + 2);
         }
-        // Scramble the letters 8 times before getting the next letter from the title
+        // Scramble the letters 5 times before getting the next letter from the title
         if (x < 5) {
-            setTimeout(setRandomChars, 100, x + 1);
+            setTimeout(setRandomChars, 75, x + 1);
         } else {
             nextChar();
         }

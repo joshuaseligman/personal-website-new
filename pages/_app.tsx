@@ -8,6 +8,7 @@ import '../styles/global.scss';
 
 // The JSX element of the overall app
 const MyApp = ({ Component, pageProps }: AppProps) => {
+
     return (
         <>
             {/* Add the important data to the head of the file */}
