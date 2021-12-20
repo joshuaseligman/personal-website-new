@@ -1,6 +1,7 @@
 import { useEffect, useRef } from 'react';
 
 import indexStyles from '../../styles/index.module.scss';
+import animations from '../../styles/animations.module.scss';
 
 // Interface to determine what gets passed into the component
 interface Props {
@@ -21,8 +22,8 @@ const IndexTextBottom: React.FC<Props> = ({state}) => {
         if (state === 1) {
             if (bottomTextRef.current !== null) {
                 // Add "bottomAnimClass" to the element's class list to make it run the CSS animation
-                if (!bottomTextRef.current.classList.contains(indexStyles.bottomAnimClass)) {
-                    bottomTextRef.current.classList.add(indexStyles.bottomAnimClass);
+                if (!bottomTextRef.current.classList.contains(animations.slideInFromRightClass)) {
+                    bottomTextRef.current.classList.add(animations.slideInFromRightClass);
                 }
             }
         }

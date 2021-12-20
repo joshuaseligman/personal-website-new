@@ -1,10 +1,11 @@
 import type { NextPage } from 'next';
+import { useEffect } from 'react';
 
 import PageTitle from '../components/globalComponents/pageTitle';
 
 import globalStyles from '../styles/global.module.scss';
 import aboutStyles from '../styles/about.module.scss';
-import { useEffect } from 'react';
+import animations from '../styles/animations.module.scss';
 
 /**
  * The page that is shown when the route is '/about'
@@ -53,12 +54,12 @@ const About: NextPage = () => {
         // If this is the first section
         if (nodes[1].tagName !== 'H2') {
             //Animations for the first section
-            nodes[0].classList.replace(aboutStyles.hidden, aboutStyles.slideInFromLeftClass);
-            nodes[1].classList.replace(aboutStyles.hidden, aboutStyles.slideInFromRightClass);
+            nodes[0].classList.replace(animations.hidden, animations.slideInFromLeftClass);
+            nodes[1].classList.replace(animations.hidden, animations.slideInFromRightClass);
         } else {
             // Animations for the horizontal line and section heading
-            nodes[0].classList.replace(aboutStyles.hidden, aboutStyles.fadeInClass);
-            nodes[1].classList.replace(aboutStyles.hidden, aboutStyles.fadeInClass);
+            nodes[0].classList.replace(animations.hidden, animations.fadeInClass);
+            nodes[1].classList.replace(animations.hidden, animations.fadeInClass);
 
             // Get the further children of the div of the section
             const insideNodes:HTMLCollection = nodes[2].children;
@@ -67,16 +68,16 @@ const About: NextPage = () => {
                 case 'Sports':
                 case 'Video Games':
                     // Animations are the same for the sports and video games sections because they have the same layout
-                    insideNodes[0].classList.replace(aboutStyles.hidden, aboutStyles.slideInFromLeftClass);
-                    insideNodes[1].classList.replace(aboutStyles.hidden, aboutStyles.fadeInClass);
-                    insideNodes[2].classList.replace(aboutStyles.hidden, aboutStyles.slideInFromRightClass);
+                    insideNodes[0].classList.replace(animations.hidden, animations.slideInFromLeftClass);
+                    insideNodes[1].classList.replace(animations.hidden, animations.fadeInClass);
+                    insideNodes[2].classList.replace(animations.hidden, animations.slideInFromRightClass);
                     break;
                 case 'Movies':
                     // Movies has a few subsections to deal with
                     for (let i:number = 0; i < insideNodes.length; i++) {
                         // Each subsection has the same animations as each other
-                        insideNodes[i].children[0].classList.replace(aboutStyles.hidden, aboutStyles.slideInFromLeftClass);
-                        insideNodes[i].children[1].classList.replace(aboutStyles.hidden, aboutStyles.slideInFromRightClass);
+                        insideNodes[i].children[0].classList.replace(animations.hidden, animations.slideInFromLeftClass);
+                        insideNodes[i].children[1].classList.replace(animations.hidden, animations.slideInFromRightClass);
                     }
                     break;
             }
@@ -100,7 +101,7 @@ const About: NextPage = () => {
                     children[i].classList.remove(className);
                 });
                 // Add the hidden class
-                children[i].classList.add(aboutStyles.hidden);
+                children[i].classList.add(animations.hidden);
             }
         }
     }

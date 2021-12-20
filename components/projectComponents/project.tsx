@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { useEffect, useRef } from 'react';
 
 import projectStyles from '../../styles/projects.module.scss';
+import animations from '../../styles/animations.module.scss';
 
 interface Props {
     project: {
@@ -33,8 +34,8 @@ const Project:React.FC<Props> = ({ project }) => {
 
     function runAnimations() {
         if (areaRef.current !== null) {
-            if (isInViewport(areaRef.current) && areaRef.current.classList.contains(projectStyles.hidden)) {
-                areaRef.current.classList.replace(projectStyles.hidden, projectStyles.slideUpClass);
+            if (isInViewport(areaRef.current) && areaRef.current.classList.contains(animations.hidden)) {
+                areaRef.current.classList.replace(animations.hidden, animations.slideUp10Class);
             }
         }
     }
@@ -46,7 +47,7 @@ const Project:React.FC<Props> = ({ project }) => {
 
     return (                    
         <Link href={project.projectURL}>
-            <a target='_blank' ref={areaRef} className={projectStyles.hidden}>
+            <a target='_blank' ref={areaRef} className={animations.hidden}>
                 <div className={projectStyles.project}>
                     <div className={projectStyles.projectInfo}>
                         <h2>{project.projectName}</h2>

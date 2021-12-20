@@ -1,0 +1,89 @@
+@import './variables.scss';
+@import './mixins.scss';
+
+.slideInFromLeftClass {
+    opacity: 1 !important;
+    @include animate(slide-in-from-left, 2.5s, linear, 1);
+}
+
+@include keyframes(slide-in-from-left) {
+    0% {
+        opacity: 0;
+        transform: translateX(-25rem);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateX(0rem);
+    }
+}
+
+.slideInFromRightClass {
+    opacity: 1 !important;
+    @include animate(slide-in-from-right, 2.5s, linear, 1);
+}
+
+@include keyframes(slide-in-from-right) {
+    0% {
+        opacity: 0;
+        transform: translateX(25rem);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateX(0rem);
+    }
+}
+
+.fadeInClass {
+    opacity: 1 !important;
+    @include animate(fade-in, 3s, linear, 1);
+}
+
+@include keyframes(fade-in) {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@include keyframes(slide-up-10) {
+    0% {
+        opacity: 0;
+        transform: translateY(10rem);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.slideUp10Class {
+    opacity: 1 !important;
+    @include animate(slide-up-10, 2.0s, linear, 1);
+}
+
+@include keyframes(slide-up-15) {
+    0% {
+        opacity: 0;
+        transform: translateY(15rem);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0rem);
+    }
+}
+
+.slideUp15Class {
+    opacity: 1 !important;
+    @include animate(slide-up-15, 2.5s, linear, 1);
+}
+
+.hidden {
+    opacity: 0;
+}

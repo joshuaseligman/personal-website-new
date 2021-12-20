@@ -7,6 +7,7 @@ import IndexTextBottom from '../components/indexComponents/indexTextBottom';
 
 import globalStyles from '../styles/global.module.scss';
 import indexStyles from '../styles/index.module.scss';
+import animations from '../styles/animations.module.scss';
 
 /**
  * The page that is shown when the route is '/'
@@ -20,7 +21,7 @@ const Index: NextPage = () => {
         // Div for the landing page
         <div id={indexStyles.landing} className={globalStyles.page}>
             {/* Area for for the main animation */}
-            <div id={indexStyles.landingTop}>
+            <div id={indexStyles.landingTop} className={animations.slideUp15Class}>
                 <h1>&#62;&nbsp;</h1>
                 {/* Main context for the animation followed by the blinking cursor */}
                 <h1><IndexTextTop state={animationState} fireFunction={setAnimationState} /><IndexBlink state={animationState} /></h1>

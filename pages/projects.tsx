@@ -6,6 +6,7 @@ import Project from '../components/projectComponents/project';
 
 import globalStyles from '../styles/global.module.scss';
 import projectStyles from '../styles/projects.module.scss';
+import animations from '../styles/animations.module.scss';
 
 interface ProjectInterface {
     projectName: string,
@@ -28,7 +29,7 @@ const Projects: NextPage<Props> = ({ projectsData }) => {
     return (
         <div className={globalStyles.page}>
             <PageTitle title='My Projects'></PageTitle>
-            <p className={projectStyles.slideUpClass}>
+            <p className={animations.slideUp10Class}>
                 Here are a few of my featured projects. To view all of my past projects, feel free to check out my&nbsp;
                 <Link href='https://www.github.com/joshuaseligman'><a id={projectStyles.githubLink} target='_blank'>GitHub profile</a></Link>.
             </p>

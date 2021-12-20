@@ -1,29 +1,4 @@
 @import './variables.scss';
-@import './mixins.scss';
-
-@include keyframes(top-anim) {
-    0% {
-        opacity: 0;
-        transform: translateY(15rem);
-    }
-
-    100% {
-        opacity: 1;
-        transform: translateY(0rem);
-    }
-}
-
-@include keyframes(bottom-anim) {
-    0% {
-        opacity: 0;
-        transform: translateX(25rem);
-    }
-
-    100% {
-        opacity: 1;
-        transform: translateX(0rem);
-    }
-}
 
 #landing {
     display: flex;
@@ -35,16 +10,10 @@
 #landingTop {
     font-size: 2rem;
     display: flex;
-    @include animate(top-anim, 2.5s, linear, 1);
 }
 
 #landingBottom {
     font-size: 1.75rem;
     text-align: center;
     opacity: 0;
-}
-
-.bottomAnimClass {
-    opacity: 1 !important;
-    @include animate(bottom-anim, 2.5s, linear, 1);
 }
