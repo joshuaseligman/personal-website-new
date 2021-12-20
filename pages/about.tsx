@@ -128,7 +128,7 @@ const About: NextPage = () => {
             <div id={aboutStyles.top} className={aboutStyles.section}>
                 <p>
                     Hi, I am a sophomore at Marist College majoring in <em>Computer Science</em> with 
-                    minors in <em>Data Science</em>, <em>Information Technology</em>, and <em>Information Systems</em>.
+                    minors in <em>Data Science and Analytics</em>, <em>Information Technology</em>, and <em>Information Systems</em>.
                     I am heavily involved on campus with a variety of clubs and organizations such as <em>Marist College Computer Society</em>,&nbsp;
                     <em>Tour Guides (Marist Ambassadors)</em>, and <em>Hillel Club</em>. My professional interest is currently full-stack web development.
                     Scroll down to learn more about my personal interests and hobbies!
@@ -179,7 +179,7 @@ const About: NextPage = () => {
                 <div id={aboutStyles.videoGames}>
                     <img src='https://upload.wikimedia.org/wikipedia/en/1/1a/Uncharted_4_box_artwork.jpg'></img>
                     <p>
-                        My favorite video games have cpativating stories that bring me on an adventure with the characters. When playing these games for the first time,
+                        My favorite video games have captivating stories that bring me on an adventure with the characters. When playing these games for the first time,
                         I find it hard to put down the controller because of how engaged I am. The <em>Uncharted</em> and <em>Last of Us</em> franchises do this to perfection,
                         which is why I love both of them.
                     </p>

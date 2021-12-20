@@ -10,9 +10,7 @@ import '../styles/global.scss';
 const MyApp = ({ Component, pageProps }: AppProps) => {
     return (
         <>
-            {/* Add the important data to the head of the file */}
             <Head>
-                <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,400;1,900&display=swap" rel="stylesheet"></link>
                 <title>Joshua Seligman</title>
             </Head>
 
