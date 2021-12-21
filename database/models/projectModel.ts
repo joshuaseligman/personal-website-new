@@ -8,4 +8,4 @@ const projectSchema:mongoose.Schema = new mongoose.Schema({
     projectURL: String
 });
 
-module.exports = mongoose.models.project || mongoose.model('project', projectSchema);
+export default mongoose.models.project || mongoose.model('project', projectSchema);

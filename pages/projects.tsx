@@ -29,9 +29,9 @@ const Projects: NextPage<Props> = ({ projectsData }) => {
             </p>
 
             <div id={projectStyles.projectsArea}>
-                {projectsData.map((project) => {
+                {projectsData.map((project, i) => {
                     return (
-                        <Project project={project}></Project>
+                        <Project key={i} project={project}></Project>
                     );
                 })}
             </div>
