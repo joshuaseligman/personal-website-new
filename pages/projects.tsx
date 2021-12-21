@@ -8,13 +8,7 @@ import globalStyles from '../styles/global.module.scss';
 import projectStyles from '../styles/projects.module.scss';
 import animations from '../styles/animations.module.scss';
 
-interface ProjectInterface {
-    projectName: string,
-    projectDescription: string,
-    topics: string[],
-    localPathToImg: string,
-    projectURL: string
-}
+import { ProjectInterface } from '../utils/util';
 
 interface Props {
     projectsData: ProjectInterface[];

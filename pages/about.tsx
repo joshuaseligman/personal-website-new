@@ -7,6 +7,8 @@ import globalStyles from '../styles/global.module.scss';
 import aboutStyles from '../styles/about.module.scss';
 import animations from '../styles/animations.module.scss';
 
+import { isInViewport } from '../utils/util';
+
 /**
  * The page that is shown when the route is '/about'
  * @returns The JSX component for the about page
@@ -16,7 +18,7 @@ const About: NextPage = () => {
     /**
      * Function that iterates through each section on the page and determines the state of each section
      */
-    function checkInView():void {
+    function manageAnimations(): void {
         // Get the list of section elements and iterate through each of them
         const sections:NodeListOf<HTMLDivElement> = document.querySelectorAll(`.${aboutStyles.section}`);
         sections.forEach((section:HTMLDivElement) => {
@@ -28,19 +30,6 @@ const About: NextPage = () => {
                 resetAnimations(section);
             }
         });
-    }
-
-    /**
-     * Function that determines if a section is visible
-     * @param section The HTML div that is being checked
-     * @returns Whether or not the div is visible on the screen
-     */
-    function isInViewport(section:HTMLDivElement):boolean {
-        // Get the bounding box of the div element
-        const box:DOMRect = section.getBoundingClientRect();
-        return  (box.top >= 0 && box.top < window.innerHeight) || // Top is visible
-                (box.bottom >= 0 && box.bottom < window.innerHeight) || // Bottom is visible
-                (box.top < 0 && box.bottom > window.innerHeight); // Neither top nor bottom are visible but we are in between
     }
 
     /**
@@ -114,9 +103,9 @@ const About: NextPage = () => {
             resetAnimations(section);
         });
         // Determine if each section should be initially rendered
-        checkInView();
+        manageAnimations();
         // Check again whenever the user scrolls on the page
-        window.addEventListener('scroll', checkInView);
+        window.addEventListener('scroll', manageAnimations);
     });
 
     return (

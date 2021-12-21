@@ -11,7 +11,7 @@ class MyDocument extends Document {
         return (
             <Html lang='en'>
                 <Head>
-                    <meta charSet="utf-8" />
+                    <meta charSet='utf-8' />
                     <link href='https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,400;1,900&display=swap' rel='stylesheet' />
                     <link rel='shortcut icon' href='/favicon.ico' />
                 </Head>
