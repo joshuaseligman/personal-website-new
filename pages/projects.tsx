@@ -39,10 +39,10 @@ const Projects: NextPage<Props> = ({ projectsData }) => {
     );
 };
 
-Projects.getInitialProps = async () => {
-    const res = await fetch('/api/projects');
+export async function getServerSideProps() {
+    const res = await fetch('https://joshuaseligman.net/api/projects');
     const data = await res.json();
-    return { projectsData: data.data} ;
+    return { props: { projectsData: data.data } };
 }
 
 export default Projects;

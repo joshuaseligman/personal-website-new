@@ -7,6 +7,8 @@ import ProjectModel from '../../../database/models/projectModel';
 
 import { ProjectInterface } from '../../../utils/util';
 
+import Cors from 'cors';
+
 // Connect to the database
 dbConnect();
 
@@ -15,7 +17,26 @@ type Data = {
     data: ProjectInterface[]
 }
 
-export default async (req:NextApiRequest, res:NextApiResponse<Data>) => {
+const cors = Cors({
+    methods: ['GET', 'HEAD']
+});
+
+// Code from https://nextjs.org/docs/api-routes/api-middlewares
+function runMiddleware(req: NextApiRequest, res: NextApiResponse, fn: any) {
+    return new Promise((resolve, reject) => {
+      fn(req, res, (result: any) => {
+        if (result instanceof Error) {
+          return reject(result);
+        }
+  
+        return resolve(result);
+      })
+    })
+  }
+
+export default async (req: NextApiRequest, res: NextApiResponse<Data>) => {
+    await runMiddleware(req, res, cors)
+
     const { method } = req;
 
     // If it is a GET request
